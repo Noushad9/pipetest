@@ -15,7 +15,7 @@ name: Build and Push Node.js App to ACR
 on:
   push:
     branches:
-      - qa   # Runs pipeline only when code is pushed to QA branch
+      - QA   # Runs pipeline only when code is pushed to QA branch
 
 # ----------------------------
 # Jobs section

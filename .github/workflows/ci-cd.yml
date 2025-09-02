@@ -59,6 +59,8 @@ jobs:
           push: true
           tags: ${{ env.ACR_NAME }}.azurecr.io/bob/${{ env.IMAGE_NAME }}/${{ env.NODE_ENV }}:${{ github.sha }}
      # Print the actual image digest (unique immutable ID)
-      - name: Show image digest
-        run: echo "Image digest is ${{ steps.build.outputs.digest }}"
+      - name: image information
+        run: |
+          echo "✅ Image pushed successfully!"
+          echo "Commit Image: ${{ env.ACR_NAME }}.azurecr.io/bob/${{ env.IMAGE_NAME }}/${{ env.NODE_ENV }}:${{ github.sha }}"
 

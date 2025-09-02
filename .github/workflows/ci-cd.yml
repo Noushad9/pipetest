@@ -40,7 +40,25 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
 
-      # Step 2: Log in to Azure Container Registry (ACR)
+    # Step 2: Set up Python (for linting)
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      # Step 3: Install Pylint
+      - name: Install Pylint
+        run: pip install pylint
+
+      # Step 4: Run Pylint
+      - name: Run Pylint
+        run: |
+          echo "🔍 Running pylint..."
+          pylint app/ || true
+        # 👆 use `|| true` if you want warnings but don't want pipeline to fail
+        # remove `|| true` if you want pipeline to fail on lint errors
+
+      # Step 5: Log in to Azure Container Registry (ACR)
       - name: Log in to Azure ACR
         uses: azure/docker-login@v1
         with:

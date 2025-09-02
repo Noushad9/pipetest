@@ -29,7 +29,7 @@ jobs:
     # ----------------------------
     env:
       ACR_NAME: azracrftdmpcdev       # Your Azure Container Registry name (without .azurecr.io)
-      IMAGE_NAME: unifytwin-webapp-nx # Name for your Docker image
+      IMAGE_NAME: pipetest # Name for your Docker image
       NODE_ENV: QA                    # Environment label (QA in this case)
 
     # ----------------------------
@@ -52,7 +52,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
-            -t ${{ env.ACR_NAME }}.azurecr.io/bob${{ env.IMAGE_NAME }}/${{ env.NODE_ENV }}:${{ github.sha }} \
+            -t ${{ env.ACR_NAME }}.azurecr.io/bob/${{ env.IMAGE_NAME }}/${{ env.NODE_ENV }}:${{ github.sha }} \
             -f Dockerfile-build .
 
       # Step 4: Push Docker image to ACR

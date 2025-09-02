@@ -15,7 +15,7 @@ name: Build and Push Node.js App to ACR
 on:
   push:
     branches:
-      - QA   # Runs pipeline only when code is pushed to QA branch
+      - qa   # Runs pipeline only when code is pushed to QA branch
 
 # ----------------------------
 # Jobs section
@@ -30,7 +30,7 @@ jobs:
     env:
       ACR_NAME: azracrftdmpcdev       # Your Azure Container Registry name (without .azurecr.io)
       IMAGE_NAME: pipetest # Name for your Docker image
-      NODE_ENV: QA                    # Environment label (QA in this case)
+      NODE_ENV: qa                    # Environment label (QA in this case)
 
     # ----------------------------
     # Steps in the job

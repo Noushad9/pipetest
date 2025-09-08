@@ -3,6 +3,7 @@
 # ============================================================
 # Purpose:
 #  - Triggered on push to "QA" branch
+#   - Runs Pylint for Python code quality checks
 #  - Builds a Docker image for Node.js app
 #  - Pushes the image to Azure Container Registry (ACR)
 # ============================================================
@@ -10,7 +11,7 @@
 name: Build and Push Node.js App to ACR
 
 # ----------------------------
-# Trigger section
+# Trigger section : run this workflow on code pushes to QA branch
 # ----------------------------
 on:
   push:

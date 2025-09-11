@@ -44,7 +44,7 @@ jobs:
 
     env:
       ACR_NAME: azracrftdmpcdev
-      IMAGE_NAME: pipetest
+      IMAGE_NAME: bobcat
       NODE_ENV: qa
 
     steps:
@@ -80,9 +80,9 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ env.ACR_NAME }}.azurecr.io/bob/${{ env.IMAGE_NAME }}/${{ env.NODE_ENV }}:${{ github.sha }}
+          tags: ${{ env.ACR_NAME }}.azurecr.io/wfa/${{ env.IMAGE_NAME }}/${{ env.NODE_ENV }}:${{ github.sha }}
 
       - name: Image information
         run: |
           echo "✅ Image pushed successfully!"
-          echo "Commit Image: ${{ env.ACR_NAME }}.azurecr.io/bob/${{ env.IMAGE_NAME }}/${{ env.NODE_ENV }}:${{ github.sha }}"
+          echo "Commit Image: ${{ env.ACR_NAME }}.azurecr.io/wfa/${{ env.IMAGE_NAME }}/${{ env.NODE_ENV }}:${{ github.sha }}"
